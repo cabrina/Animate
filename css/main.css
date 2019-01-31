@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#gridlayout{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 400px 500px 150px 1fr;
+    grid-template-rows: 200px 200px 1fr 1fr; 
+    overflow: hidden;   
+}
+
+.beach{
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.krans{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    transition: transform 2s ease-in-out;
+}
+
+.krans:hover{
+    transform: rotate(360deg)
+}
+
+.skygge{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.stjerne{
+    grid-column: 3/4;
+    grid-row: 2/3;
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+.stjerne:hover{
+    opacity: 1;
+}
+
+.surf{
+    width: 100%;
+    grid-column: 4/-1;
+    grid-row: 1/3;
+    animation: surfmovestart 3s;
+}
+
+.surf:hover{
+    animation: surfmovehover 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes surfmovestart{
+    from{
+        transform: translateX(100%)
+    }
+    to{
+        transform: translateX(0%)
+    }
+}
+
+@keyframes surfmovehover{
+    from{
+        transform: translateX(0%)
+    }
+    to{
+        transform: translateX(100%)
+    }
+}
